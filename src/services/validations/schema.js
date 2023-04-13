@@ -10,4 +10,16 @@ const dataLoginSchema = Joi.object({
   'string.empty': 'Some required fields are missing',
 });
 
-module.exports = { dataLoginSchema };
+const dataUserSchema = Joi.object({
+  password: Joi.string().min(6).required().label('password'),
+  email: Joi.string().email().required(),
+  displayName: Joi.string().min(8).required().label('displayName'),  
+ 
+}).messages({
+  'string.base': 'Invalid fields',
+  'any.required': 'Some required fields are missing',
+  'string.empty': 'Some required fields are missing',
+  
+}).unknown();
+
+module.exports = { dataLoginSchema, dataUserSchema };

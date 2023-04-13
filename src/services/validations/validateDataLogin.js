@@ -1,25 +1,17 @@
-const { dataLoginSchema } = require('./schema');
+const schema = require('./schema');
 
 const checkData = (data) => {
-  const { error } = dataLoginSchema.validate(data);
+  const { error } = schema.dataLoginSchema.validate(data);
   console.log('error', error);
-  if (error) {
-    console.log('error.message', error.message);
-  }
   
   return error;
 };
 
-const dataLoginValidation = (data) => {
-  const error = checkData(data);
-  if (!error) return;
-  if (error.message === '"productId"') {
-    return { error: 'PRODUCTID_IS_REQUIRED' };
-  }
-  if (error.message === '"quantity"') {
-    return { error: 'QUANTITY_IS_REQUIRED' };
-  }
-  return { error: 'QUANTITY_INVALID' };
+const checkDataUser = (data) => {
+  const { error } = schema.dataUserSchema.validate(data);
+  console.log('error schema', error);
+    
+  return error;
 };
 
-module.exports = { dataLoginValidation, checkData };
+module.exports = { checkData, checkDataUser };
