@@ -7,11 +7,4 @@ const checkData = (data) => {
   return error;
 };
 
-const checkDataUser = (data) => {
-  const { error } = schema.dataUserSchema.validate(data);
-  console.log('error schema', error);
-    
-  return error;
-};
-
-module.exports = { checkData, checkDataUser };
+module.exports = { checkData };

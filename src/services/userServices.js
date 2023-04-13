@@ -1,10 +1,10 @@
 const { genToken } = require('../utils/auth');
 const { User } = require('../models');
-const validateDataLogin = require('./validations/validateDataLogin');
+const validateDatauser = require('./validations/validateDatauser');
 
 const postUserService = async (request) => {
     const { body } = request;
-    const error = validateDataLogin.checkDataUser(body);
+    const error = validateDatauser.checkDataUser(body);
    
     if (error) {
         const e = { code: 400, message: error.message };

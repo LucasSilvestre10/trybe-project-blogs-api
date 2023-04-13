@@ -22,4 +22,8 @@ const dataUserSchema = Joi.object({
   
 }).unknown();
 
-module.exports = { dataLoginSchema, dataUserSchema };
+const dataCategorySchema = Joi.object({
+  name: Joi.string().required(), 
+});
+
+module.exports = { dataLoginSchema, dataUserSchema, dataCategorySchema };
