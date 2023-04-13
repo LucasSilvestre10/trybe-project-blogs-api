@@ -5,5 +5,6 @@ const categoryController = require('../controllers/categoryController');
 
 router.use(authTokenMiddleware);
 router.post('/categories', categoryController.postCategory);
+router.get('/categories', categoryController.getAllCategories);
 
 module.exports = router;

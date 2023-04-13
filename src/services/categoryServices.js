@@ -10,4 +10,9 @@ const postCategoryService = async (request) => {
     return result;
 };
 
-module.exports = { postCategoryService };
+const getAllCategoriesService = async () => {
+    const result = await Category.findAll();
+    return result;
+};
+
+module.exports = { postCategoryService, getAllCategoriesService };
