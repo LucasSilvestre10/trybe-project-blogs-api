@@ -30,4 +30,13 @@ const getAllUsersServices = async () => {
       return result;
 };
 
-module.exports = { postUserService, getAllUsersServices };
+const getUserIdServices = async (request) => {
+    const { id } = request.params;
+    const result = await User.findOne({
+        where: { id },
+        attributes: { exclude: ['password'] },
+      });
+      return result;
+};
+
+module.exports = { postUserService, getAllUsersServices, getUserIdServices };
