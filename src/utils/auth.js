@@ -15,4 +15,7 @@ const genToken = (user) => {
   return jwt.sign(payload, JWT_SECRET, options);
 };
 
-module.exports = { genToken };
+const checkToken = (token) => 
+   jwt.verify(token, JWT_SECRET);
+
+module.exports = { genToken, checkToken };

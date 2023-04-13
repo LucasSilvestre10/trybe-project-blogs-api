@@ -23,4 +23,11 @@ const postUserService = async (request) => {
     return token;
 };
 
-module.exports = { postUserService };
+const getAllUsersServices = async () => {
+    const result = await User.findAll({
+        attributes: { exclude: ['password'] },
+      });
+      return result;
+};
+
+module.exports = { postUserService, getAllUsersServices };
